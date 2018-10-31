@@ -260,7 +260,7 @@ public class ParserStrategy {
 
 	private CoverageProfiler cov;
 
-	public final CoverageProfiler getCoverageProfier() {
+	public final CoverageProfiler getCoverageProfiler() {
 		if (Coverage) {
 			if (cov == null) {
 				cov = new CoverageProfiler();

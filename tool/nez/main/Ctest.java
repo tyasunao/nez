@@ -67,7 +67,7 @@ public class Ctest extends Command {
 			testExample(ex, p, result, this instanceof Cexample);
 		}
 		long t2 = System.nanoTime();
-		CoverageProfiler prof = strategy.getCoverageProfier();
+		CoverageProfiler prof = strategy.getCoverageProfiler();
 		if (prof != null) {
 			prof.dumpCoverage();
 		}

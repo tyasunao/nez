@@ -195,7 +195,7 @@ public abstract class ParserCode<T extends Instruction> {
 	private CoverageProfiler prof = null;
 
 	public void initCoverage(ParserStrategy strategy) {
-		prof = strategy.getCoverageProfier();
+		prof = strategy.getCoverageProfiler();
 	}
 
 	public MozInst compileCoverage(String label, boolean start, MozInst next) {
