@@ -44,7 +44,9 @@ public class Ctest extends Command {
 	public final boolean testAll(Grammar grammar, List<Example> exampleList, ParserStrategy strategy) {
 		TestStat result = new TestStat();
 		if (!(this instanceof Cexample)) {
-			strategy.Coverage = true;
+			// takano
+			//strategy.Coverage = true;
+			strategy.Coverage = false;
 			strategy.Oinline = false;
 			strategy.Prediction = 1;
 		}
