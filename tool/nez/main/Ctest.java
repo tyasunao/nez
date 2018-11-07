@@ -44,9 +44,7 @@ public class Ctest extends Command {
 	public final boolean testAll(Grammar grammar, List<Example> exampleList, ParserStrategy strategy) {
 		TestStat result = new TestStat();
 		if (!(this instanceof Cexample)) {
-			// takano
-			//strategy.Coverage = true;
-			strategy.Coverage = false;
+			strategy.Coverage = true;
 			strategy.Oinline = false;
 			strategy.Prediction = 1;
 		}
@@ -71,7 +69,8 @@ public class Ctest extends Command {
 		long t2 = System.nanoTime();
 		CoverageProfiler prof = strategy.getCoverageProfiler();
 		if (prof != null) {
-			prof.dumpCoverage();
+			// takano
+			//prof.dumpCoverage();
 		}
 		ConsoleUtils.println("Elapsed time (including all tests): " + ((t2 - t1) / 1000000) + "ms");
 		ConsoleUtils.print("Syntax Pass: " + result.getSuccSyntax() + "/" + result.getTotal() + " ratio: " + result.getRatioSyntax() + "%");
