@@ -356,12 +356,18 @@ public abstract class Tree<E extends Tree<E>> extends AbstractList<E> implements
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		this.appendStringfied(sb);
+		this.appendStringfied(sb, 0, false);
 		return sb.toString();
 	}
 
-	protected void appendStringfied(StringBuilder sb) {
-		sb.append("[#");
+	protected void appendStringfied(StringBuilder sb, int indent, boolean ret) {
+		if (ret) {
+			sb.append("\n");
+			for (int i = 0; i < indent; i++) {
+				sb.append("  ");
+			}
+		}
+		sb.append("(#");
 		if (this.getTag() != null) {
 			sb.append(this.getTag().getSymbol());
 		}
@@ -379,12 +385,12 @@ public abstract class Tree<E extends Tree<E>> extends AbstractList<E> implements
 				if (this.subTree[i] == null) {
 					sb.append("null");
 				} else {
-					this.subTree[i].appendStringfied(sb);
+					this.subTree[i].appendStringfied(sb, indent + 1, this.labels[i] == null);
 				}
 			}
 		}
 		appendExtraStringfied(sb);
-		sb.append("]");
+		sb.append(")");
 	}
 
 	protected void appendExtraStringfied(StringBuilder sb) {
